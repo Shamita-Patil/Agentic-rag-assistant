@@ -251,4 +251,6 @@ Final Answer
 
 ## Author
 
-Developed as a hands-on project to explore modern GenAI, RAG, Agentic AI, semantic retrieval, and intelligent document search systems using Google Gemini.
+## Author
+
+Built to demonstrate end-to-end implementation of Agentic AI, Retrieval-Augmented Generation (RAG), semantic search, vector databases, and Google Gemini-powered intelligent document retrieval systems.
