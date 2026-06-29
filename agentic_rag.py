@@ -9,11 +9,14 @@ from agents.research_agent import create_agent
 from config.config import DOCUMENT_FOLDER
 
 
-def main():
+def initialize_agent():
+    """
+    Loads documents, creates chunks,
+    builds the vector database,
+    and returns the initialized AI agent.
+    """
 
-    print(
-        "\nLoading documents..."
-    )
+    print("\nLoading documents...")
 
     documents = load_documents(
         DOCUMENT_FOLDER
@@ -55,6 +58,22 @@ def main():
         collection
     )
 
+    return agent
+
+
+def ask_question(agent, question):
+    """
+    Returns the AI-generated answer
+    for the given question.
+    """
+
+    return agent.run(question)
+
+
+def main():
+
+    agent = initialize_agent()
+
     while True:
 
         question = input(
@@ -63,11 +82,14 @@ def main():
 
         if question.lower() == "exit":
 
+            print("\nGoodbye!")
+
             break
 
         try:
 
-            answer = agent.run(
+            answer = ask_question(
+                agent,
                 question
             )
 
