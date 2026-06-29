@@ -4,13 +4,29 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-GEMINI_API_KEY = os.getenv(
-    "GEMINI_API_KEY"
-)
+try:
+    import streamlit as st
 
-SERPER_API_KEY = os.getenv(
-    "SERPER_API_KEY"
-)
+    GEMINI_API_KEY = st.secrets.get(
+        "GEMINI_API_KEY",
+        os.getenv("GEMINI_API_KEY")
+    )
+
+    SERPER_API_KEY = st.secrets.get(
+        "SERPER_API_KEY",
+        os.getenv("SERPER_API_KEY")
+    )
+
+except Exception:
+
+    GEMINI_API_KEY = os.getenv(
+        "GEMINI_API_KEY"
+    )
+
+    SERPER_API_KEY = os.getenv(
+        "SERPER_API_KEY"
+    )
+
 
 MODEL_NAME = "gemini-2.5-flash"
 
