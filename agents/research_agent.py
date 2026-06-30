@@ -34,7 +34,9 @@ def create_agent(collection):
         tools=tools,
         llm=llm,
         agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
-        verbose=True
+        verbose=True,
+        handle_parsing_errors = True,
+        max_iterations=3
     )
 
     return agent
